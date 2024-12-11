@@ -311,7 +311,7 @@ public class TasksTrackerPlugin extends Plugin
 	public void onProfileChanged(ProfileChanged profileChanged)
 	{
 		final Optional<Plugin> taskTrackerPlugin = pluginManager.getPlugins().stream().filter(p -> p.getName().equals("Tasks Tracker")).findFirst();
-		if (taskTrackerPlugin.isPresent() && pluginManager.isPluginEnabled(taskTrackerPlugin.get()))
+		if (taskTrackerPlugin.isPresent() && pluginManager.isPluginEnabled(taskTrackerPlugin.get()) && isLoggedInState(GameState.LOGGED_IN))
 		{
 			reloadTaskType();
 		}
